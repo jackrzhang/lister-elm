@@ -1,0 +1,33 @@
+{
+  "name": "elm-todos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "build": "webpack",
+    "clean": "rm -rf dist",
+    "dev": "webpack-dev-server --port 4568",
+    "start": "npm run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackrzhang/elm-todos.git"
+  },
+  "private": true,
+  "author": "Jack R. Zhang <15jzhang@gmail.com>",
+  "license": "BSD3",
+  "bugs": {
+    "url": "https://github.com/jackrzhang/elm-todos/issues"
+  },
+  "homepage": "https://github.com/jackrzhang/elm-todos#readme",
+  "dependencies": {
+    "css-loader": "^0.26.1",
+    "elm-webpack-loader": "^4.1.1",
+    "file-loader": "^0.9.0",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-dev-middleware": "^1.9.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
