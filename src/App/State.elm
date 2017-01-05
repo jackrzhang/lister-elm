@@ -2,6 +2,7 @@ module App.State exposing (..)
 
 import App.Types exposing (..)
 import App.Input.State as Input
+import App.List.State as List
 
 
 -- INIT
@@ -9,6 +10,7 @@ import App.Input.State as Input
 initialModel : Model
 initialModel =
     { input = Input.initialModel
+    , list = List.initialModel
     }
 
 
@@ -33,6 +35,9 @@ update msg model =
 
         MsgForInput inputMsg ->
             { model | input = Input.update inputMsg model.input}
+
+        MsgForList listMsg ->
+            { model | list = List.update listMsg model.list}
 
 
 updateCmd : Msg -> Cmd Msg
