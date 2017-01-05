@@ -1,4 +1,4 @@
-module App.List.Types exposing (..)
+module App.Entries.Types exposing (..)
 
 
 -- MODEL
@@ -17,5 +17,4 @@ type alias Model =
 -- MSG
 
 type Msg
-    = NoOp
-    | AddEntry Entry
+    = AddEntry Entry

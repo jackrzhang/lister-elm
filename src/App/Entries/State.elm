@@ -1,6 +1,6 @@
-module App.List.State exposing (..)
+module App.Entries.State exposing (..)
 
-import App.List.Types exposing (..)
+import App.Entries.Types exposing (..)
 
 
 -- INIT
@@ -22,9 +22,6 @@ init =
 update : Msg -> Model -> Model
 update msg model =
     case msg of
-        
-        NoOp ->
-            model
 
         AddEntry entry ->
             List.append model [ entry ]

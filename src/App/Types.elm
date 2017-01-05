@@ -1,14 +1,14 @@
 module App.Types exposing (..)
 
 import App.Input.Types as Input
-import App.List.Types as List
+import App.Entries.Types as Entries
 
 
 -- MODEL
 
 type alias Model =
     { input : Input.Model
-    , list : List.Model
+    , entries : Entries.Model
     }
 
 
@@ -16,4 +16,4 @@ type alias Model =
 
 type Msg
     = MsgForInput Input.Msg
-    | MsgForList List.Msg
+    | MsgForEntries Entries.Msg

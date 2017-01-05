@@ -7,7 +7,7 @@ import Utility.OnEnter exposing (onEnter)
 
 import App.Types as App
 import App.Input.Types as Input
-import App.List.Types as List
+import App.Entries.Types as Entries
 
 
 view : Input.Model -> Html App.Msg
@@ -16,9 +16,12 @@ view model =
         [ input
             [ type_ "text"
             , placeholder "Type and enter stuff"
+            , autofocus True
+            , value model.text
             , onInput (App.MsgForInput << Input.UpdateInput)
-                -- equivalent to: (\str -> App.MsgForInput <| Input.UpdateInput str)
-            , onEnter <| createAddEntryMsg model
+                -- equivalent to: (\str -> App.MsgForInput (Input.UpdateInput str))
+            , onEnter (createAddEntryMsg model)
+            , onEnter (App.MsgForInput Input.ClearInput)
             ]
             []
         ]
@@ -26,6 +29,6 @@ view model =
 
 createAddEntryMsg : Input.Model -> App.Msg
 createAddEntryMsg model =
-    List.Entry 0 model.text False
-        |> List.AddEntry
-        |> App.MsgForList
+    Entries.Entry 0 model.text False
+        |> Entries.AddEntry
+        |> App.MsgForEntries

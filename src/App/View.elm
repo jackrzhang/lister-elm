@@ -5,12 +5,12 @@ import Html.Attributes exposing (..)
 
 import App.Types exposing (..)
 import App.Input.View as Input
-import App.List.View as List
+import App.Entries.View as Entries
 
 
 view : Model -> Html Msg
 view model =
     div []
         [ Input.view model.input
-        , List.view model.list
+        , Entries.view model.entries
         ]

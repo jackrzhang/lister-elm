@@ -7,7 +7,7 @@ import App.Input.Types exposing (..)
 
 initialModel : Model
 initialModel =
-    { text = "Hello World!"
+    { text = ""
     }
 
 
@@ -24,3 +24,6 @@ update msg model =
 
         UpdateInput text ->
             { model | text = text }
+
+        ClearInput ->
+            { model | text = "" }
