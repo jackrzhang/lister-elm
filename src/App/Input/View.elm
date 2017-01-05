@@ -20,8 +20,10 @@ view model =
             , value model.text
             , onInput (App.MsgForInput << Input.UpdateInput)
                 -- equivalent to: (\str -> App.MsgForInput (Input.UpdateInput str))
-            , onEnter (createAddEntryMsg model)
-            , onEnter (App.MsgForInput Input.ClearInput)
+            , onEnter <| App.ChainMsgs
+                [ (createAddEntryMsg model)
+                , (App.MsgForInput Input.ClearInput)
+                ]
             ]
             []
         ]

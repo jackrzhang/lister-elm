@@ -30,11 +30,14 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
 
+        ChainMsgs msgs ->
+            List.foldl update model msgs
+
         MsgForInput inputMsg ->
             { model | input = Input.update inputMsg model.input}
 
         MsgForEntries entriesMsg ->
-            { model | entries = Entries.update entriesMsg model.entries}
+            { model | entries = Entries.update entriesMsg model.entries }
 
 
 updateCmd : Msg -> Cmd Msg
