@@ -27,4 +27,4 @@ update msg model =
             model
 
         AddEntry entry ->
-            List.concat model [ entry ]
+            List.append model [ entry ]
