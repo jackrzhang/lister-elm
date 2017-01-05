@@ -1,13 +1,14 @@
 module App.State exposing (..)
 
 import App.Types exposing (..)
+import App.Input.State as Input
 
 
 -- INIT
 
 initialModel : Model
 initialModel =
-    { text = "Hello World!"
+    { input = Input.initialModel
     }
 
 
@@ -25,9 +26,16 @@ updateWithCmd msg model =
 
 update : Msg -> Model -> Model
 update msg model =
-    model
+    case msg of
+
+        NoOp ->
+            model
+
+        MsgForInput inputMsg ->
+            { model | input = Input.update inputMsg model.input}
 
 
 updateCmd : Msg -> Cmd Msg
 updateCmd msg =
-    Cmd.batch []
+    Cmd.batch
+        []

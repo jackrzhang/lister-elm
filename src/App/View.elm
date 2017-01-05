@@ -4,8 +4,11 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 
 import App.Types exposing (..)
+import App.Input.View as Input
 
 
 view : Model -> Html Msg
 view model =
-    div [] [ text model.text ]
+    div []
+        [ Html.map MsgForInput (Input.view model.input)
+        ]

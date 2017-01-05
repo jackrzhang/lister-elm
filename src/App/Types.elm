@@ -1,10 +1,12 @@
 module App.Types exposing (..)
 
+import App.Input.Types as Input
+
 
 -- MODEL
 
 type alias Model =
-    { text : String
+    { input : Input.Model
     }
 
 
@@ -12,3 +14,4 @@ type alias Model =
 
 type Msg
     = NoOp
+    | MsgForInput Input.Msg
