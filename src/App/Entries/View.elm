@@ -18,5 +18,5 @@ view entries =
 viewEntry : Entries.Entry -> Html App.Msg
 viewEntry entry =
     div []
-        [ text entry.text 
+        [ text entry.text
         ]

@@ -3,6 +3,7 @@ module App.State exposing (..)
 import App.Types exposing (..)
 import App.Input.State as Input
 import App.Entries.State as Entries
+import App.Control.State as Control
 
 
 -- INIT
@@ -11,6 +12,7 @@ initialModel : Model
 initialModel =
     { input = Input.initialModel
     , entries = Entries.initialModel
+    , control = Control.initialModel
     }
 
 
@@ -38,6 +40,9 @@ update msg model =
 
         MsgForEntries entriesMsg ->
             { model | entries = Entries.update entriesMsg model.entries }
+
+        MsgForControl controlMsg ->
+            { model | control = Control.update controlMsg model.control }
 
 
 updateCmd : Msg -> Cmd Msg
