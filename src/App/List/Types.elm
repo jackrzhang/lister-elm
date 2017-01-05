@@ -9,6 +9,7 @@ type alias Entry =
     , starred : Bool
     }
 
+
 type alias Model =
     List Entry
 
