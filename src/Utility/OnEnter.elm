@@ -5,13 +5,13 @@ import Html.Events exposing (..)
 import Json.Decode as Json
 
 
-onEnter : msg -> msg -> Attribute msg
-onEnter fail success =
+onEnter : msg -> Attribute msg
+onEnter msg =
     let
-        tagger code =
+        isEnter code =
             if code == 13 then
-                success
+                Json.succeed msg
             else
-                fail
+                Json.fail "not ENTER"
     in
-        on "keyup" (Json.map tagger keyCode)
+        on "keydown" (Json.andThen isEnter keyCode)

@@ -16,8 +16,9 @@ view model =
         [ input
             [ type_ "text"
             , placeholder "Type and enter stuff"
-            --, onInput App.MsgForInput <| UpdateInput model.text
-            , onEnter App.NoOp (createAddEntryMsg model)
+            , onInput (App.MsgForInput << Input.UpdateInput)
+                -- equivalent to: (\str -> App.MsgForInput <| Input.UpdateInput str)
+            , onEnter <| createAddEntryMsg model
             ]
             []
         ]
