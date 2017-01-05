@@ -17,7 +17,14 @@ view model =
             [ type_ "text"
             , placeholder "Type and enter stuff"
             --, onInput App.MsgForInput <| UpdateInput model.text
-            , onEnter App.NoOp <| App.MsgForList <| List.AddEntry (List.Entry 0 "New Entry" False)
+            , onEnter App.NoOp (createAddEntryMsg model)
             ]
             []
         ]
+
+
+createAddEntryMsg : Input.Model -> App.Msg
+createAddEntryMsg model =
+    List.Entry 0 model.text False
+        |> List.AddEntry
+        |> App.MsgForList
