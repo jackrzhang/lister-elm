@@ -12,7 +12,33 @@ import App.Control.View as Control
 view : Model -> Html Msg
 view model =
     div []
-        [ Input.view model.input
+        [ title
+        , Input.view model.input
         , Entries.view model.entries
         , Control.view model.control
+        , infoFooter
+        ]
+
+
+title : Html Msg
+title =
+    header []
+        [ h1 []
+            [ a [ href "https://github.com/jackrzhang/lister-elm" ] 
+                [ text "lister"] 
+            ]
+        ]
+
+
+infoFooter : Html Msg
+infoFooter =
+    footer [ id "info" ]
+        [ p []
+            [ text "Written by "
+            , a [ href "https://github.com/jackrzhang" ] [ text "Jack Zhang" ]
+            ]
+        , p []
+            [ text "Built with "
+            , a [ href "http://elm-lang.org" ] [ text "Elm" ]
+            ]
         ]
