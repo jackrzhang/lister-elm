@@ -15,6 +15,5 @@ type alias Model =
 -- MSG
 
 type Msg
-    = NoOp
-    | MsgForInput Input.Msg
+    = MsgForInput Input.Msg
     | MsgForList List.Msg

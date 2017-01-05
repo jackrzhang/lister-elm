@@ -30,9 +30,6 @@ update : Msg -> Model -> Model
 update msg model =
     case msg of
 
-        NoOp ->
-            model
-
         MsgForInput inputMsg ->
             { model | input = Input.update inputMsg model.input}
 
