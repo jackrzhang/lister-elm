@@ -18,3 +18,4 @@ type alias Model =
 
 type Msg
     = NoOp
+    | AddEntry Entry

@@ -25,3 +25,6 @@ update msg model =
         
         NoOp ->
             model
+
+        AddEntry entry ->
+            List.concat model [ entry ]
