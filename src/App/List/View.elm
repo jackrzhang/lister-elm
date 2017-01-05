@@ -4,7 +4,8 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onInput)
 
-import App.List.Types exposing (..)
+import App.Types exposing (Msg(..))
+import App.List.Types exposing (Model, Entry)
 
 
 view : Model -> Html Msg

@@ -11,6 +11,6 @@ import App.List.View as List
 view : Model -> Html Msg
 view model =
     div []
-        [ Html.map MsgForInput (Input.view model.input)
-        , Html.map MsgForList (List.view model.list)
+        [ Input.view model.input
+        , List.view model.list
         ]
