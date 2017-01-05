@@ -7,7 +7,9 @@ import App.List.Types exposing (..)
 
 initialModel : Model
 initialModel =
-    []
+    [ Entry 0 "First Entry" False
+    , Entry 1 "Second Entry" True
+    ]
 
 
 init : ( Model, Cmd Msg )
