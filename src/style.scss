@@ -19,7 +19,7 @@ input {
 
 /* document level adjustments  */
 html {
-  font-size: 18px;
+  font-size: 17px;
 }
 @media (max-width: 500px) {
   html {
@@ -97,8 +97,27 @@ div.entry {
   }
 }
 
+div.control {
+  margin-top: 1.8rem;
+
+  span.filter {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    margin: 0 .3rem;
+    cursor: pointer;
+    color: rgb(50, 50, 50);
+  }
+  span.filter:hover {
+    text-decoration: underline;
+  }
+
+  span.filter.current {
+    text-decoration: underline;
+  }
+}
+
 footer {
-  margin: 2.4rem 0;
+  margin: 3rem 0;
 
   p {
     font-size: .7rem;
