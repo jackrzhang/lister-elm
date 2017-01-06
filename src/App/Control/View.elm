@@ -2,6 +2,7 @@ module App.Control.View exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (onClick)
 
 import App.Types as App
 import App.Control.Types as Control exposing (..)
@@ -31,7 +32,12 @@ viewFilter ( filter, current ) =
         else
             "filter"
     in
-        span [ class classes ]
+        span 
+            [ class classes
+            , onClick <| App.ChainMsgs
+                [ App.MsgForControl (Control.ApplyFilter filter)
+                ]
+            ]
             [ text (toString filter)
             ]
 
