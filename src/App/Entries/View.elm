@@ -9,9 +9,9 @@ import App.Entries.Types as Entries
 
 
 view : Entries.Model -> Html App.Msg
-view entries =
+view model =
     div []
-        [ div [] (List.map viewEntry entries)
+        [ div [] (List.map viewEntry model.list)
         ]
 
 

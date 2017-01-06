@@ -6,6 +6,7 @@ import Html.Events exposing (onClick)
 
 import App.Types as App
 import App.Control.Types as Control exposing (..)
+import App.Entries.Types as Entries exposing (..)
 
 
 view : Control.Model -> Html App.Msg
@@ -36,6 +37,7 @@ viewFilter ( filter, current ) =
             [ class classes
             , onClick <| App.ChainMsgs
                 [ App.MsgForControl (Control.ApplyFilter filter)
+                , App.MsgForEntries (Entries.ApplyFilter filter)
                 ]
             ]
             [ text (toString filter)
