@@ -19,8 +19,8 @@ init =
 
 -- UPDATE
 
-update : Msg -> Model -> Model
-update msg model =
+updateModel : Msg -> Model -> Model
+updateModel msg model =
     case msg of
 
         AddEntry entry ->

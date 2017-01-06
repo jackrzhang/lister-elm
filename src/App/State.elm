@@ -18,34 +18,34 @@ initialModel =
 
 init : ( Model, Cmd Msg )
 init =
-    ( initialModel, Cmd.none )
+    initialModel ! []
 
 
 -- UPDATE
 
-updateWithCmd : Msg -> Model -> ( Model, Cmd Msg )
-updateWithCmd msg model =
-    ( update msg model, updateCmd msg )
-
-
-update : Msg -> Model -> Model
+update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
 
         ChainMsgs msgs ->
-            List.foldl update model msgs
+            (List.foldl chain (model ! []) msgs)
 
         MsgForInput inputMsg ->
-            { model | input = Input.update inputMsg model.input}
+            { model | input = Input.updateModel inputMsg model.input}
+                ! []
 
         MsgForEntries entriesMsg ->
-            { model | entries = Entries.update entriesMsg model.entries }
+            { model | entries = Entries.updateModel entriesMsg model.entries }
+                ! []
 
         MsgForControl controlMsg ->
-            { model | control = Control.update controlMsg model.control }
+            { model | control = Control.updateModel controlMsg model.control }
+                ! []
 
 
-updateCmd : Msg -> Cmd Msg
-updateCmd msg =
-    Cmd.batch
-        []
+chain : Msg -> ( Model, Cmd Msg ) -> ( Model, Cmd Msg )
+chain msg ( model, cmd ) =
+    let ( nextModel, nextCmd ) =
+        update msg model
+    in
+        nextModel ! [ cmd, nextCmd ]

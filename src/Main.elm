@@ -11,7 +11,7 @@ main : Program Never Model Msg
 main =
     Html.program
         { init = App.State.init
-        , update = App.State.updateWithCmd
+        , update = App.State.update
         , view = App.View.view
         , subscriptions = \_ -> Sub.none
         }
