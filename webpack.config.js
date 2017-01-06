@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 var path = require('path');
 var autoprefixer = require('autoprefixer');
 
@@ -47,6 +48,11 @@ module.exports = {
 
     noParse: /\.elm$/,
   },
+
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.optimize.OccurrenceOrderPlugin()
+  ],
 
   postcss: [
     autoprefixer({ browsers: ['last 2 versions'] }) 

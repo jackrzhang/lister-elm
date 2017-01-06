@@ -6,7 +6,6 @@ $font-stack: 'Unna', serif;
 $accent-color: rgb(12, 100, 100);
 $hover-color: mix(white, $accent-color, 20%);
 
-/* document level adjustments */
 html,
 head, 
 body {
@@ -91,7 +90,9 @@ div.entry {
     float: right;
 
     span.x {
-      margin-left: 10px;
+      display: inline-block;
+      text-align: right;
+      width: 1.5rem;
     }
   }
 }
