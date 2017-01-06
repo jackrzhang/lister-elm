@@ -18,9 +18,13 @@ view entries =
 viewEntry : Entries.Entry -> Html App.Msg
 viewEntry entry =
     div [ class "entry" ]
-        [ span [ class "checkmark" ] [ text "☑ " ]
+        [ span [ class "checkmark" ]
+            [ text "☑ " 
+            ]
         , text entry.text
         , div [ class "container" ]
-            [ span [ class "x" ] [ text "×" ]
+            [ span [ class "x" ] 
+                [ text "×" 
+                ]
             ]
         ]
