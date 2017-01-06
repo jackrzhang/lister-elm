@@ -12,10 +12,11 @@ import App.Entries.Types as Entries
 
 view : Input.Model -> Html App.Msg
 view model =
-    div []
-        [ input
+    div [ class "input" ]
+        [ span [ class "caret" ] [ text "❯ " ]
+        , input
             [ type_ "text"
-            , placeholder "Type and enter stuff"
+            , placeholder "write stuff, hit enter"
             , autofocus True
             , value model.text
             , onInput (App.MsgForInput << Input.UpdateInput)

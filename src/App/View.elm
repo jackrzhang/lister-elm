@@ -32,7 +32,7 @@ title =
 
 infoFooter : Html Msg
 infoFooter =
-    footer [ id "info" ]
+    footer []
         [ p []
             [ text "Written by "
             , a [ href "https://github.com/jackrzhang" ] [ text "Jack Zhang" ]

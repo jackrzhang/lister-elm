@@ -1,4 +1,5 @@
-var path = require("path");
+var path = require('path');
+var autoprefixer = require('autoprefixer');
 
 module.exports = {
 
@@ -20,6 +21,8 @@ module.exports = {
         loaders: [
           'style-loader',
           'css-loader',
+          'postcss-loader',
+          'sass-loader'
         ]
       },
       {
@@ -44,6 +47,10 @@ module.exports = {
 
     noParse: /\.elm$/,
   },
+
+  postcss: [
+    autoprefixer({ browsers: ['last 2 versions'] }) 
+  ],
 
   devServer: {
     inline: true,

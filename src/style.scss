@@ -1,0 +1,103 @@
+/* imports */
+@import url('https://fonts.googleapis.com/css?family=Unna');
+
+/* variables */
+$font-stack: 'Unna', serif;
+$highlight-color: rgb(12, 100, 100);
+$hover-color: mix(white, $highlight-color, 20%);
+
+/* document level adjustments */
+html,
+head, 
+body {
+    margin: 0;
+}
+
+html,
+input {
+  font-family: $font-stack;
+}
+
+html {
+  font-size: 18px;
+}
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 23px;
+  }
+}
+
+/* element styling */
+body {
+  height: 100%;
+  text-align: center;
+  color: #000;
+  background-color: #fff;
+}
+
+a {
+  color: $highlight-color;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.caret {
+  color: $highlight-color;
+}
+
+input {
+  outline: none;
+  padding: 5px 10px;
+  width: 250px;
+  max-width: 80vw;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-bottom: 1px solid $highlight-color;
+  font-size: 1.2rem;
+}
+
+div.entry {
+  text-align: left;
+  font-size: 1.2rem;
+  margin: .7rem auto;
+  width: 350px;
+  max-width: 85vw;
+
+  span.checkmark,
+  span.x {
+    cursor: pointer;
+    font-size: 1.5rem;
+    line-height: 1.2rem;
+    color: $highlight-color;
+  }
+  span.checkmark:hover,
+  span.x:hover {
+    color: $hover-color;
+  }
+
+  div.container {
+    float: right;
+
+    span.x {
+      margin-left: 10px;
+    }
+  }
+}
+
+footer {
+  margin: 2.4rem 0;
+
+  p {
+    font-size: .8rem;
+    margin: .3rem 0;
+  }
+}
+
