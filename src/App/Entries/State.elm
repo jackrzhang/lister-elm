@@ -8,26 +8,18 @@ import App.Control.Types exposing (Filter(..))
 
 initialModel : Model
 initialModel =
-    { list = initialList
-    , filter = initialFilter
+    { list =
+        [ Entry -1 "First Entry" False
+        , Entry -2 "Second Entry" True
+        ]
+    , filter = All
+    , currentId = 0
     }
-
-
-initialList : List Entry
-initialList =
-    [ Entry 0 "First Entry" False
-    , Entry 1 "Second Entry" True
-    ]
-
-
-initialFilter : Filter
-initialFilter
-    = All
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( initialModel, Cmd.none )
+    initialModel ! []
 
 
 -- UPDATE
@@ -36,8 +28,28 @@ updateModel : Msg -> Model -> Model
 updateModel msg model =
     case msg of
 
-        AddEntry entry ->
-            { model | list = List.append model.list [ entry ] }
+        AddEntry text ->
+            { model | list = List.append model.list [ Entry model.currentId text False ] }
+
+        RemoveEntry id ->
+            { model | list = List.filter (\entry -> not <| entry.id == id) model.list }
+
+        ToggleComplete id ->
+                    { model | list = toggleComplete id model.list }
 
         ApplyFilter filter ->
             { model | filter = filter }
+
+
+toggleComplete : Int -> List Entry -> List Entry
+toggleComplete id list =
+    List.map (updateEntry id) list
+
+
+updateEntry : Int -> (Entry -> Entry)
+updateEntry id =
+    \entry ->
+        if entry.id == id then
+            { entry | complete = not entry.complete }
+        else
+            entry

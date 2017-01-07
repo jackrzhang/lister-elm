@@ -32,6 +32,6 @@ view model =
 
 createAddEntryMsg : Input.Model -> App.Msg
 createAddEntryMsg model =
-    Entries.Entry 0 model.text False
+    model.text
         |> Entries.AddEntry
         |> App.MsgForEntries

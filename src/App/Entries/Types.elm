@@ -14,11 +14,14 @@ type alias Entry =
 type alias Model =
     { list : List Entry
     , filter : Filter
+    , currentId : Int
     }
 
 
 -- MSG
 
 type Msg
-    = AddEntry Entry
+    = AddEntry String
+    | RemoveEntry Int
+    | ToggleComplete Int
     | ApplyFilter Filter

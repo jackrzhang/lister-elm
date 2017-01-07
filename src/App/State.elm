@@ -8,17 +8,17 @@ import App.Control.State as Control
 
 -- INIT
 
+init : ( Model, Cmd Msg )
+init =
+    initialModel ! []
+
+
 initialModel : Model
 initialModel =
     { input = Input.initialModel
     , entries = Entries.initialModel
     , control = Control.initialModel
     }
-
-
-init : ( Model, Cmd Msg )
-init =
-    initialModel ! []
 
 
 -- UPDATE
