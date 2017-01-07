@@ -4,7 +4,7 @@
   "description": "",
   "main": "",
   "scripts": {
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack",
     "clean": "rm -rf dist",
     "dev": "webpack-dev-server --port 4568",
     "start": "npm run dev"

@@ -1,8 +1,8 @@
-var webpack = require('webpack');
-var path = require('path');
-var autoprefixer = require('autoprefixer');
+const webpack = require('webpack');
+const path = require('path');
+const autoprefixer = require('autoprefixer');
 
-module.exports = {
+let config = {
 
   entry: {
     main: [
@@ -49,11 +49,6 @@ module.exports = {
     noParse: /\.elm$/,
   },
 
-  plugins: [
-    // new webpack.optimize.UglifyJsPlugin(),
-    // new webpack.optimize.OccurrenceOrderPlugin()
-  ],
-
   postcss: [
     autoprefixer({ browsers: ['last 2 versions'] }) 
   ],
@@ -71,3 +66,19 @@ module.exports = {
   },
 
 };
+
+
+if (process.env.NODE_ENV === 'production') {
+  config = Object.assign(config, {
+
+    plugins: [
+      new webpack.optimize.UglifyJsPlugin({
+        compress: { warnings: false }
+      }),
+      new webpack.optimize.OccurrenceOrderPlugin()
+    ]
+
+  });
+}
+
+module.exports = config;
