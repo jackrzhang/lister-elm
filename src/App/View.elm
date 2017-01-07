@@ -15,9 +15,17 @@ view model =
         [ title
         , Input.view model.input
         , Entries.view model.entries
-        , Control.view model.control
+        , viewControl model
         , infoFooter
         ]
+
+
+viewControl : Model -> Html Msg
+viewControl model =
+    if not (List.isEmpty model.entries.list) then
+        Control.view model.control
+    else 
+        div [] []
 
 
 title : Html Msg
