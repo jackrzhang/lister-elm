@@ -7,7 +7,7 @@ import App.Control.Types exposing (Filter)
 type alias Entry =
     { id : Int
     , text : String
-    , starred : Bool
+    , complete : Bool
     }
 
 

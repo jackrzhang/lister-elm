@@ -5,14 +5,32 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onInput)
 
 import App.Types as App
+import App.Control.Types as Control exposing (Filter(..))
 import App.Entries.Types as Entries
 
 
 view : Entries.Model -> Html App.Msg
 view model =
-    div []
-        [ div [] (List.map viewEntry model.list)
-        ]
+    let list =
+        filterEntries model.filter model.list
+    in
+        div []
+            [ div [] (List.map viewEntry list)
+            ]
+
+
+filterEntries : Filter -> List Entries.Entry -> List Entries.Entry
+filterEntries filter list =
+    case filter of
+
+        All ->
+            list
+
+        Active ->
+            List.filter (\entry -> entry.complete == False) list
+
+        Complete ->
+            List.filter (\entry -> entry.complete == True) list
 
 
 viewEntry : Entries.Entry -> Html App.Msg
@@ -24,7 +42,7 @@ viewEntry entry =
         , text entry.text
         , div [ class "container" ]
             [ span [ class "x" ] 
-                [ text "×" 
+                [ text " ×" 
                 ]
             ]
         ]
