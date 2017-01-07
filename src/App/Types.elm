@@ -17,7 +17,8 @@ type alias Model =
 -- MSG
 
 type Msg
-    = ChainMsgs (List Msg)
+    = NoOp
+    | ChainMsgs (List Msg)
     | MsgForInput Input.Msg
     | MsgForEntries Entries.Msg
     | MsgForControl Control.Msg
