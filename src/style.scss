@@ -74,12 +74,17 @@ div.entry {
   width: 20rem;
   max-width: 85vw;
 
+  span.text.complete {
+    text-decoration: line-through;
+    color: rgb(160, 160, 160);
+  }
+
   span.checkmark,
   span.x {
-    cursor: pointer;
     font-size: 1.5rem;
     line-height: 1.2rem;
     color: $accent-color;
+    cursor: pointer;
   }
   span.checkmark:hover,
   span.x:hover {

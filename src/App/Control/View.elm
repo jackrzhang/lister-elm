@@ -27,14 +27,14 @@ viewFilters options =
 
 viewFilter : ( Filter, Filter ) -> Html App.Msg
 viewFilter ( filter, current ) = 
-    let classes =
+    let filterStyle =
         if filter == current then
-            "filter current"
+            " current"
         else
-            "filter"
+            " "
     in
         span 
-            [ class classes
+            [ class ("filter" ++ filterStyle)
             , onClick <| App.ChainMsgs
                 [ App.MsgForControl (Control.ApplyFilter filter)
                 , App.MsgForEntries (Entries.ApplyFilter filter)

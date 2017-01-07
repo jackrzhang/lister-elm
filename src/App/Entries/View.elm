@@ -27,22 +27,30 @@ filterEntries filter list =
             list
 
         Active ->
-            List.filter (\entry -> entry.complete == False) list
+            List.filter (\entry -> entry.complete == True) list
 
         Complete ->
-            List.filter (\entry -> entry.complete == True) list
+            List.filter (\entry -> entry.complete == False) list
 
 
 viewEntry : Entries.Entry -> Html App.Msg
 viewEntry entry =
-    div [ class "entry" ]
-        [ span [ class "checkmark" ]
-            [ text "☑ " 
-            ]
-        , text entry.text
-        , div [ class "container" ]
-            [ span [ class "x" ] 
-                [ text " ×" 
+    let textStyle =
+        if entry.complete then
+            " active"
+        else
+            " complete"
+    in
+        div [ class "entry" ]
+            [ span [ class "checkmark" ]
+                [ text "☑ " 
+                ]
+            , span [ class ("text" ++ textStyle) ]
+                [ text entry.text 
+                ]
+            , div [ class "container" ]
+                [ span [ class "x" ] 
+                    [ text " ×" 
+                    ]
                 ]
             ]
-        ]
