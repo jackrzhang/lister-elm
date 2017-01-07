@@ -2,7 +2,7 @@ module App.Entries.View exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onInput)
+import Html.Events exposing (onClick)
 
 import App.Types as App
 import App.Control.Types as Control exposing (Filter(..))
@@ -42,14 +42,23 @@ viewEntry entry =
             " active"
     in
         div [ class "entry" ]
-            [ span [ class "checkmark" ]
-                [ text "☑ " 
+            [ span
+                [ class "checkmark" 
+                , onClick <|
+                    App.MsgForEntries (Entries.ToggleComplete entry.id)
                 ]
-            , span [ class ("text" ++ textStyle) ]
+                [ text "☑ "
+                ]
+            , span 
+                [ class ("text" ++ textStyle)]
                 [ text entry.text 
                 ]
             , div [ class "container" ]
-                [ span [ class "x" ] 
+                [ span 
+                    [ class "x" 
+                    , onClick <|
+                        App.MsgForEntries (Entries.RemoveEntry entry.id)
+                    ] 
                     [ text " ×" 
                     ]
                 ]
