@@ -1,5 +1,5 @@
 {
-  "name": "elm-todos",
+  "name": "lister-elm",
   "version": "1.0.0",
   "description": "",
   "main": "",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jackrzhang/elm-todos.git"
+    "url": "git+https://github.com/jackrzhang/lister-elm.git"
   },
   "private": true,
   "author": "Jack R. Zhang <15jzhang@gmail.com>",
   "license": "BSD3",
   "bugs": {
-    "url": "https://github.com/jackrzhang/elm-todos/issues"
+    "url": "https://github.com/jackrzhang/lister-elm/issues"
   },
-  "homepage": "https://github.com/jackrzhang/elm-todos#readme",
+  "homepage": "https://github.com/jackrzhang/lister-elm#readme",
   "dependencies": {
     "css-loader": "^0.26.1",
     "elm-webpack-loader": "^4.1.1",
